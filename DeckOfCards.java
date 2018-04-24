@@ -81,12 +81,14 @@ class Card { 
 class Deck { 
 	// The arraylist of cards representing the deck 
 	private ArrayList<Card> deck = new ArrayList<Card>();
+	
  	// Constructor, constructs a sorted deck of cards 
 	public Deck() {  
 		Suit[] suits = Card.getSuits();  
 		int minFv = Card.getMinFaceValue();  
 		int maxFv = Card.getMaxFaceValue();
-  	// Iterate over all face values for each suit  
+		
+  		// Iterate over all face values for each suit  
 		for (Suit suit : suits) {   
 			for (int fv = minFv; fv <= maxFv; fv++) {    
 				// Add the card to the deck    
@@ -95,10 +97,11 @@ class Deck { 
 		} 
 	} 
  	
-	// Shuffle the deck  public void shuffle() {
+	// Shuffle the deck  
+	public void shuffle() {
 		Random rand = new Random();
-		
-  	// Iterate over the deck  
+  		
+		// Iterate over the deck  
 		for (int i = 0; i < deck.size(); i++) { 
 			int j = rand.nextInt(i + 1);
    		
@@ -109,17 +112,18 @@ class Deck { 
 	
 	// Removes one card from the deck 
  	public Card deleteOneCard() {  
-		// Do not remove if the deck is already empty  if (deck.isEmpty()) {   
+		// Do not remove if the deck is already empty  
+		if (deck.isEmpty()) {   
 			throw new IllegalStateException("Cannot remove more cards");  
 		}
   
 		// Get the first card in the deck  
 		Card card = deck.get(0);
 		
-  	// Remove it from the deck  
+  		// Remove it from the deck  
 		deck.remove(0);
 		
-  	// Return the removed card  
+  		// Return the removed card  
 		return card; 
 	}
 	
@@ -141,29 +145,29 @@ public class DeckOfCards {
  		System.out.println("Deck of Cards");  
 		Deck deck = new Deck();
 	
-  	// Print sorted Deck  
+  		// Print sorted Deck  
 		System.out.println("The Sorted Deck of Cards:");  
 		System.out.println(deck);
 	
-  	// Print the shuffled Deck  
+  		// Print the shuffled Deck  
 		System.out.println("The Shuffled Deck of Cards:");  
 		deck.shuffle();  
 		System.out.println(deck);
 	
-  	// Remove 3 cards  
+  		// Remove 3 cards  
 		System.out.println("Removing 3 cards...");  
 		System.out.println(deck.deleteOneCard());  
 		System.out.println(deck.deleteOneCard());  
 		System.out.println(deck.deleteOneCard());
 	
-	  // Remove 49 more cards  
+	  	// Remove 49 more cards  
 		System.out.println("Removing 49 more cards...");  
 		for (int i = 0; i < 49; i++) {   
 			deck.deleteOneCard();  
 		}  
 		System.out.println();
 	
-  	// Attempt to remove one more card  
+  		// Attempt to remove one more card  
 		System.out.println("Removing 53rd card...");  
 		try {   
 			deck.deleteOneCard();  
