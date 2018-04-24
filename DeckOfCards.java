@@ -43,11 +43,13 @@ class Card { 
 		faceValue = fv; 
 	}
  	
-	// Return the suit of this card public Suit getSuit() {  
+	// Return the suit of this card 
+	public Suit getSuit() {  
 		return suit; 
 	}
  	
-	// Set this card's suit public void setSuit(Suit s) {  
+	// Set this card's suit 
+	public void setSuit(Suit s) {  
 		if (s == null) {   
 			throw new RuntimeException("Suit cannot be null");  
 		}  
